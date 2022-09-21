@@ -36,7 +36,7 @@ const Login = () => {
   }
 
   return (
-    <div style={{backgroundColor:'purple' ,height:'100vh'}}>
+    <Box style={{height:'100vh'}} bgGradient='linear(to-b, purple.200, pink.500)'>
       <Container maxW='md' py='12' >
         <Box backgroundColor='whiteAlpha.400' shadow='xl' w={400} rounded='2xl' py={2}>
           <Text fontSize='2xl' fontWeight='bold' px={3} py={5} border='1px' borderLeft='none' borderRight='none' borderTop='none'  borderColor={'white'} >Login</Text>
@@ -48,17 +48,16 @@ const Login = () => {
                 <AiFillEye h='1.75rem' mr={2} onClick={showPass} />
                </InputRightElement>
             </InputGroup>
-              <Text textAlign='center' textColor='purple.900' fontWeight='bold'>Forgot your password ?</Text>
+              <Button textAlign='center' textColor='purple.900' fontWeight='bold' variant='unstyled'>Forgot your password ?</Button>
               <Button colorScheme='purple' textColor='white' rounded='2xl' onClick={onLogin}>Login</Button>
           </Stack>
-          <Divider/>
+          <Divider color='white'/>
           <div className='d-flex justify-content-center'>
             <Button my={10} variant='unstyled' textColor='purple.900' fontWeight='bold' onClick={()=>navigate('/register')}  >Alredy have an account sign up?</Button>
           </div>
         </Box>
       </Container>
-
-    </div>
+    </Box>
   )
 }
 
