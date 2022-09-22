@@ -19,7 +19,8 @@ const Login = () => {
       password
     })
     .then((res)=>{
-      console.log(res.data)
+      console.log(res.data[0].iduser)
+      localStorage.setItem('active', res.data[0].iduser) // izin tambahin ini
       navigate('/home', {replace:true})
     })
     .catch((error)=>{
