@@ -20,6 +20,7 @@ const Login = () => {
     })
     .then((res)=>{
       console.log(res.data)
+      localStorage.setItem('active',res.data[0].iduser) //izin tambahin ini
       navigate('/home', {replace:true})
     })
     .catch((error)=>{
