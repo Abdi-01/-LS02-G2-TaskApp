@@ -2,12 +2,16 @@ import axios from "axios";
 import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from 'react-router-dom'
-import Register from "./Pages/Register";
+import Register from "./pages/Register";
 
 function App() {
-  <div>
-    <Register />
-  </div>
+  return (
+    <div>
+      <Routes>
+        <Route path='/register' element={<Register />} />
+      </Routes>
+    </div>
+  )
 }
 
 export default App;
