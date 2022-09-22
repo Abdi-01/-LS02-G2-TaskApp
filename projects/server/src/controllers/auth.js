@@ -15,7 +15,7 @@ module.exports = {
     login: async (req, res) => {
         try {
             let { email, password } = req.body
-            let loginUser = await dbQuery(`Select * from user WHERE email=${dbConf.escape(email)} and password=${dbConf.escape(password)}`)
+            let loginUser = await dbQuery(`Select * from user WHERE email=${dbConf.escape(email)} and password=${dbConf.escape(hashPassword(password))}`)
             if (loginUser.length > 0) {
                 res.status(200).send(loginUser)
             } else {

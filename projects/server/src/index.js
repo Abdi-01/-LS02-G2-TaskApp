@@ -22,7 +22,17 @@ app.get('/', (req, res) => {
   res.status(200).send('<h1>TODO LIST</h1>')
 })
 
-const { authRouter } = require('./routers')
+// DB Check Connection
+const { dbConf } = require('./config/db')
+dbConf.getConnection((err, connection) => {
+  if (err) {
+    console.log('Error MYSQL', err.sqlMessage);
+  }
+  console.log(`connect: ${connection.threadId}`);
+})
+
+// Config Routers
+const { authRouter } = require('./routers');
 app.use('/auth', authRouter)
 
 app.listen(PORT, (err) => {
@@ -32,16 +42,3 @@ app.listen(PORT, (err) => {
     console.log(`APP RUNNING at ${PORT} ✅`);
   }
 });
-
-// DB Check Connection
-const{dbConf}= require('./config/db')
-dbConf.getConnection((err,connection)=>{
-    if(err){
-        console.log('Error MYSQL', err.sqlMessage);
-    }
-    console.log(`connect: ${connection.threadId}`);
-})
-
-// Config Routers
-const{authRouter}=require('./routers');
-app.use('/auth', authRouter)  
