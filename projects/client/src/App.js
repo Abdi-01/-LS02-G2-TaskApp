@@ -2,10 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom'
 import "./App.css";
-import { Routes, Route } from 'react-router-dom'
-import Login from '../src/pages/Login';
-import Register from '../src/pages/Register'
-import Home from '../src/pages/Home'
+import Login from './pages/Login';
+import Register from './pages/Register'
+import Home from './pages/Home'
 
 function App() {
   // const [message, setMessage] = useState("");
