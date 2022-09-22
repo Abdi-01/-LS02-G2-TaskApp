@@ -1,10 +1,9 @@
-const dotenv = require('dotenv');
+const dotenv = require('dotenv')
 dotenv.config();
-const express = require("express");
-const cors = require("cors");
-
-const PORT = process.env.PORT || 8000;
+const express = require('express');
 const app = express();
+const cors = require('cors');
+const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(cors());
@@ -18,6 +17,13 @@ app.get("/api/greetings", (req, res, next) => {
     message: "Hello, Student !",
   });
 });
+
+app.get('/', (req, res) => {
+  res.status(200).send('<h1>TODO LIST</h1>')
+})
+
+const { authRouter } = require('./routers')
+app.use('/auth', authRouter)
 
 app.listen(PORT, (err) => {
   if (err) {
