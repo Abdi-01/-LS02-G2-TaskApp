@@ -23,17 +23,19 @@ app.get('/', (req, res) => {
 })
 
 // DB Check Connection
-const { dbConf } = require('./config/db')
-dbConf.getConnection((err, connection) => {
-  if (err) {
-    console.log('Error MYSQL', err.sqlMessage);
-  }
-  console.log(`connect: ${connection.threadId}`);
-})
+// const { dbConf } = require('./config/db')
+// dbConf.getConnection((err, connection) => {
+//   if (err) {
+//     console.log('Error MYSQL', err.sqlMessage);
+//   }
+//   console.log(`connect: ${connection.threadId}`);
+// })
 
 // Config Routers
 const { authRouter } = require('./routers');
 app.use('/auth', authRouter)
+const { taskRouter } = require('./routers');
+app.use('/task', taskRouter)
 
 app.listen(PORT, (err) => {
   if (err) {
